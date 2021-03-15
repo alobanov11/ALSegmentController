@@ -33,51 +33,55 @@ final class HeaderView: UIView
     }
 }
 
-final class ContentView: UIView, IALSegmentContentView
+final class ContentViewController: UIViewController, IALSegmentContentViewControler
 {
-    var onSegmentScroll: (() -> Void)?
-    var segmentScrollView: IALCollaborativeScroll { self.collectionView }
+    var canBeShowed: Bool { true }
+    var segmentContentDelegate: IALSegmentContentDelegate?
+    var segmentCollaborativeScrollView: IALCollaborativeScrollView { self.collectionView }
     
-    private(set) lazy var collectionViewLayout = UICollectionViewFlowLayout()
-    private(set) lazy var collectionView = ALCollaborativeCollectionView(
-        frame: .zero,
-        collectionViewLayout: self.collectionViewLayout
-    )
+    private(set) lazy var collectionViewLayout: UICollectionViewFlowLayout = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset.top = 20
+        flowLayout.sectionInset.bottom = 20
+        flowLayout.minimumLineSpacing = 20
+        flowLayout.scrollDirection = .vertical
+        return flowLayout
+    }()
 
-    init() {
-        super.init(frame: .zero)
-        self.collectionViewLayout.sectionInset.top = 20
-        self.collectionViewLayout.sectionInset.bottom = 20
-        self.collectionViewLayout.minimumLineSpacing = 20
-        self.collectionViewLayout.scrollDirection = .vertical
-        self.collectionView.translatesAutoresizingMaskIntoConstraints = false
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
-        self.collectionView.backgroundColor = .clear
-        self.collectionView.register(
+    private(set) lazy var collectionView: ALCollaborativeCollectionView = {
+        let collectionView = ALCollaborativeCollectionView(
+            frame: .zero,
+            collectionViewLayout: self.collectionViewLayout
+        )
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .clear
+        collectionView.register(
             UICollectionViewCell.self,
             forCellWithReuseIdentifier: String(describing: UICollectionViewCell.self)
         )
-        self.addSubview(self.collectionView)
-        NSLayoutConstraint.activate([
-            self.collectionView.topAnchor.constraint(equalTo: self.topAnchor),
-            self.collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-        ])
-    }
+        return collectionView
+    }()
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.addSubview(self.collectionView)
+        NSLayoutConstraint.activate([
+            self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+        ])
     }
 }
 
-extension ContentView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ContentViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        Bool.random() ? 1 : 10
+        Int.random(in: 5...10)
     }
 
     func collectionView(
@@ -102,33 +106,41 @@ extension ContentView: UICollectionViewDataSource, UICollectionViewDelegateFlowL
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.onSegmentScroll?()
+        self.segmentContentDelegate?.segmentContent(didScroll: scrollView)
     }
 }
 
-final class ViewController: UIViewController
+final class ViewController: ALSegmentViewController
 {
-    private lazy var segmentView: ALSegmentView = {
-        let view = ALSegmentView(
+    init() {
+        let refreshControl = UIRefreshControl()
+
+        super.init(
             headerView: HeaderView(),
-            segments: Array(0...2).map {
-                ALSegment("\($0)") { ContentView() }
+            viewControllers: Array(0...3).map {
+                let viewController = ContentViewController()
+                viewController.title = "\($0)"
+                return viewController
             },
-            barStyles: .init(height: 42,
-                             font: .systemFont(ofSize: 14, weight: .regular),
-                             color: .black,
-                             selectedColor: .systemBlue,
-                             borderColor: .darkGray,
-                             backgroundColor: .cyan,
-                             borderHeight: 2)
+            refreshControl: refreshControl
         )
-        return view
-    }()
-    
-    override func loadView() {
-        self.title = "Hello"
-        self.view = self.segmentView
-        self.segmentView.backgroundColor = .brown
+
+        refreshControl.addTarget(self, action: #selector(self.pullToRefresh), for: .valueChanged)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .white
+    }
+
+    @objc func pullToRefresh() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.refreshControl?.endRefreshing()
+        }
     }
 }
 

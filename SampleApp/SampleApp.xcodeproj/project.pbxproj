@@ -3,11 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E2002A8825E29E3000DDEB5A /* ALSegmentView in Frameworks */ = {isa = PBXBuildFile; productRef = E2002A8725E29E3000DDEB5A /* ALSegmentView */; };
+		E23BB20E25FD06EA00F956BB /* ALSegmentView.h in Headers */ = {isa = PBXBuildFile; fileRef = E23BB20C25FD06EA00F956BB /* ALSegmentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E23BB21125FD06EA00F956BB /* ALSegmentView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23BB20A25FD06EA00F956BB /* ALSegmentView.framework */; };
+		E23BB21225FD06EA00F956BB /* ALSegmentView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E23BB20A25FD06EA00F956BB /* ALSegmentView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E23BB22025FD070400F956BB /* ALSegmentNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23BB21925FD070400F956BB /* ALSegmentNavigationBarView.swift */; };
+		E23BB22225FD070400F956BB /* ALSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23BB21B25FD070400F956BB /* ALSegmentViewController.swift */; };
+		E23BB22325FD070400F956BB /* IALSegmentContentViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23BB21C25FD070400F956BB /* IALSegmentContentViewControler.swift */; };
+		E23BB22425FD070400F956BB /* ALSegmentCollaborativeScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23BB21D25FD070400F956BB /* ALSegmentCollaborativeScrollView.swift */; };
+		E23BB22525FD070400F956BB /* ALSegmentVerticalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23BB21E25FD070400F956BB /* ALSegmentVerticalCollectionView.swift */; };
+		E23BB22625FD070400F956BB /* ALSegmentPageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23BB21F25FD070400F956BB /* ALSegmentPageCollectionView.swift */; };
 		E2EDC89025DC1332006CE0F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EDC88F25DC1332006CE0F6 /* AppDelegate.swift */; };
 		E2EDC89425DC1332006CE0F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EDC89325DC1332006CE0F6 /* ViewController.swift */; };
 		E2EDC89925DC1333006CE0F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EDC89825DC1333006CE0F6 /* Assets.xcassets */; };
@@ -17,6 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E23BB20F25FD06EA00F956BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2EDC88425DC1332006CE0F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E23BB20925FD06EA00F956BB;
+			remoteInfo = ALSegmentView;
+		};
 		E2EDC8A325DC1333006CE0F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E2EDC88425DC1332006CE0F6 /* Project object */;
@@ -40,6 +55,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E23BB21225FD06EA00F956BB /* ALSegmentView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +63,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E23BB20A25FD06EA00F956BB /* ALSegmentView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ALSegmentView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E23BB20C25FD06EA00F956BB /* ALSegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALSegmentView.h; sourceTree = "<group>"; };
+		E23BB20D25FD06EA00F956BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E23BB21925FD070400F956BB /* ALSegmentNavigationBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALSegmentNavigationBarView.swift; sourceTree = "<group>"; };
+		E23BB21B25FD070400F956BB /* ALSegmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALSegmentViewController.swift; sourceTree = "<group>"; };
+		E23BB21C25FD070400F956BB /* IALSegmentContentViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IALSegmentContentViewControler.swift; sourceTree = "<group>"; };
+		E23BB21D25FD070400F956BB /* ALSegmentCollaborativeScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALSegmentCollaborativeScrollView.swift; sourceTree = "<group>"; };
+		E23BB21E25FD070400F956BB /* ALSegmentVerticalCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALSegmentVerticalCollectionView.swift; sourceTree = "<group>"; };
+		E23BB21F25FD070400F956BB /* ALSegmentPageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALSegmentPageCollectionView.swift; sourceTree = "<group>"; };
 		E2B9C90225E05FB500B1960A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		E2B9C90E25E05FE400B1960A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E2EDC88C25DC1332006CE0F6 /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,11 +89,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E23BB20725FD06EA00F956BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2EDC88925DC1332006CE0F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2002A8825E29E3000DDEB5A /* ALSegmentView in Frameworks */,
+				E23BB21125FD06EA00F956BB /* ALSegmentView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +121,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E23BB20B25FD06EA00F956BB /* ALSegmentView */ = {
+			isa = PBXGroup;
+			children = (
+				E23BB21D25FD070400F956BB /* ALSegmentCollaborativeScrollView.swift */,
+				E23BB21C25FD070400F956BB /* IALSegmentContentViewControler.swift */,
+				E23BB21925FD070400F956BB /* ALSegmentNavigationBarView.swift */,
+				E23BB21F25FD070400F956BB /* ALSegmentPageCollectionView.swift */,
+				E23BB21E25FD070400F956BB /* ALSegmentVerticalCollectionView.swift */,
+				E23BB21B25FD070400F956BB /* ALSegmentViewController.swift */,
+				E23BB20C25FD06EA00F956BB /* ALSegmentView.h */,
+				E23BB20D25FD06EA00F956BB /* Info.plist */,
+			);
+			path = ALSegmentView;
+			sourceTree = "<group>";
+		};
 		E2B9C90125E05FB500B1960A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +151,7 @@
 				E2EDC88E25DC1332006CE0F6 /* SampleApp */,
 				E2EDC8A525DC1333006CE0F6 /* SampleAppTests */,
 				E2EDC8B025DC1333006CE0F6 /* SampleAppUITests */,
+				E23BB20B25FD06EA00F956BB /* ALSegmentView */,
 				E2EDC88D25DC1332006CE0F6 /* Products */,
 				E2B9C90125E05FB500B1960A /* Frameworks */,
 			);
@@ -115,6 +163,7 @@
 				E2EDC88C25DC1332006CE0F6 /* SampleApp.app */,
 				E2EDC8A225DC1333006CE0F6 /* SampleAppTests.xctest */,
 				E2EDC8AD25DC1333006CE0F6 /* SampleAppUITests.xctest */,
+				E23BB20A25FD06EA00F956BB /* ALSegmentView.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,7 +200,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		E23BB20525FD06EA00F956BB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E23BB20E25FD06EA00F956BB /* ALSegmentView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		E23BB20925FD06EA00F956BB /* ALSegmentView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E23BB21325FD06EA00F956BB /* Build configuration list for PBXNativeTarget "ALSegmentView" */;
+			buildPhases = (
+				E23BB20525FD06EA00F956BB /* Headers */,
+				E23BB20625FD06EA00F956BB /* Sources */,
+				E23BB20725FD06EA00F956BB /* Frameworks */,
+				E23BB20825FD06EA00F956BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ALSegmentView;
+			productName = ALSegmentView;
+			productReference = E23BB20A25FD06EA00F956BB /* ALSegmentView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		E2EDC88B25DC1332006CE0F6 /* SampleApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2EDC8B625DC1333006CE0F6 /* Build configuration list for PBXNativeTarget "SampleApp" */;
@@ -164,10 +242,10 @@
 			buildRules = (
 			);
 			dependencies = (
+				E23BB21025FD06EA00F956BB /* PBXTargetDependency */,
 			);
 			name = SampleApp;
 			packageProductDependencies = (
-				E2002A8725E29E3000DDEB5A /* ALSegmentView */,
 			);
 			productName = SampleApp;
 			productReference = E2EDC88C25DC1332006CE0F6 /* SampleApp.app */;
@@ -218,6 +296,10 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					E23BB20925FD06EA00F956BB = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+					};
 					E2EDC88B25DC1332006CE0F6 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -241,7 +323,6 @@
 			);
 			mainGroup = E2EDC88325DC1332006CE0F6;
 			packageReferences = (
-				E2002A8625E29E3000DDEB5A /* XCRemoteSwiftPackageReference "ALSegmentView" */,
 			);
 			productRefGroup = E2EDC88D25DC1332006CE0F6 /* Products */;
 			projectDirPath = "";
@@ -250,11 +331,19 @@
 				E2EDC88B25DC1332006CE0F6 /* SampleApp */,
 				E2EDC8A125DC1333006CE0F6 /* SampleAppTests */,
 				E2EDC8AC25DC1333006CE0F6 /* SampleAppUITests */,
+				E23BB20925FD06EA00F956BB /* ALSegmentView */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E23BB20825FD06EA00F956BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2EDC88A25DC1332006CE0F6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -281,6 +370,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E23BB20625FD06EA00F956BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E23BB22625FD070400F956BB /* ALSegmentPageCollectionView.swift in Sources */,
+				E23BB22025FD070400F956BB /* ALSegmentNavigationBarView.swift in Sources */,
+				E23BB22225FD070400F956BB /* ALSegmentViewController.swift in Sources */,
+				E23BB22525FD070400F956BB /* ALSegmentVerticalCollectionView.swift in Sources */,
+				E23BB22425FD070400F956BB /* ALSegmentCollaborativeScrollView.swift in Sources */,
+				E23BB22325FD070400F956BB /* IALSegmentContentViewControler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2EDC88825DC1332006CE0F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,6 +411,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E23BB21025FD06EA00F956BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E23BB20925FD06EA00F956BB /* ALSegmentView */;
+			targetProxy = E23BB20F25FD06EA00F956BB /* PBXContainerItemProxy */;
+		};
 		E2EDC8A425DC1333006CE0F6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E2EDC88B25DC1332006CE0F6 /* SampleApp */;
@@ -333,6 +440,67 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E23BB21425FD06EA00F956BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = LUY4875ZZ2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ALSegmentView/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sample.ALSegmentView;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E23BB21525FD06EA00F956BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = LUY4875ZZ2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ALSegmentView/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sample.ALSegmentView;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		E2EDC8B425DC1333006CE0F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -452,6 +620,7 @@
 		E2EDC8B725DC1333006CE0F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -472,6 +641,7 @@
 		E2EDC8B825DC1333006CE0F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -576,6 +746,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E23BB21325FD06EA00F956BB /* Build configuration list for PBXNativeTarget "ALSegmentView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E23BB21425FD06EA00F956BB /* Debug */,
+				E23BB21525FD06EA00F956BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E2EDC88725DC1332006CE0F6 /* Build configuration list for PBXProject "SampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -613,25 +792,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		E2002A8625E29E3000DDEB5A /* XCRemoteSwiftPackageReference "ALSegmentView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:alobanov11/ALSegmentView.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		E2002A8725E29E3000DDEB5A /* ALSegmentView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E2002A8625E29E3000DDEB5A /* XCRemoteSwiftPackageReference "ALSegmentView" */;
-			productName = ALSegmentView;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E2EDC88425DC1332006CE0F6 /* Project object */;
 }
