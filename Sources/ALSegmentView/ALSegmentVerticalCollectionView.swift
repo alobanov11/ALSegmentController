@@ -141,12 +141,22 @@ extension ALSegmentVerticalCollectionView: UICollectionViewDelegateFlowLayout, U
         contentView.translatesAutoresizingMaskIntoConstraints = false
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         cell.contentView.addSubview(contentView)
+        cell.contentView.clipsToBounds = true
+
+        let bottomConstraint = NSLayoutConstraint(item: contentView,
+                                                  attribute: .bottom,
+                                                  relatedBy: .equal,
+                                                  toItem: cell.contentView,
+                                                  attribute: .bottom,
+                                                  multiplier: 1,
+                                                  constant: 0)
+        bottomConstraint.priority = .init(999)
 
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: cell.contentView.topAnchor),
             contentView.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor),
+            bottomConstraint,
         ])
 
         return cell
