@@ -82,7 +82,10 @@ final class ALSegmentPageCollectionView: UIView
         self.shouldListenScroll = false
         self.pageViewController.setViewControllers(
             [viewControllers[index]],
-            direction: index > self.selectedIndex ? .forward : .reverse,
+            direction: index > self.selectedIndex
+                || (index == 0 && self.selectedIndex == 0)
+                ? .forward
+                : .reverse,
             animated: animated,
             completion: { _ in
                 self.shouldListenScroll = true
