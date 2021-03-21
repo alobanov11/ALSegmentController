@@ -110,7 +110,7 @@ extension ALSegmentVerticalCollectionView: UICollectionViewDelegateFlowLayout, U
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        3
+        4
     }
 
     func collectionView(
