@@ -4,9 +4,9 @@
 
 import UIKit
 
-open class ALSegmentViewController: UIViewController
+open class SegmentViewController: UIViewController
 {
-    open var navigationBarStyles: ALSegmentNavigationBarStyles {
+    open var segmentNavigationBarStyles: SegmentNavigationBarStyles {
         .init(height: 42,
               font: .systemFont(ofSize: 14, weight: .regular),
               color: .black,
@@ -20,22 +20,22 @@ open class ALSegmentViewController: UIViewController
 
     public private(set) var refreshControl: UIRefreshControl?
 
-    public private(set) var viewControllers: [IALSegmentContentViewControler] = []
+    public private(set) var viewControllers: [ISegmentContentViewControler] = []
 
     // MARK: - UI
 
-    private lazy var navigationBarView = ALSegmentNavigationBarView(
+    private lazy var navigationBarView = SegmentNavigationBarView(
         delegate: self,
-        styles: self.navigationBarStyles,
+        styles: self.segmentNavigationBarStyles,
         segments: self.viewControllers.map { $0.title ?? "*" }
     )
 
-    private lazy var verticalCollectionView = ALSegmentVerticalCollectionView(
+    private lazy var verticalCollectionView = SegmentVerticalCollectionView(
         adapter: self,
         refreshControl: self.refreshControl
     )
 
-    private lazy var pageCollectionView = ALSegmentPageCollectionView(
+    private lazy var pageCollectionView = SegmentPageCollectionView(
         adapter: self
     )
 
@@ -52,7 +52,7 @@ open class ALSegmentViewController: UIViewController
 
     public init(
         headerView: UIView? = nil,
-        viewControllers: [IALSegmentContentViewControler],
+        viewControllers: [ISegmentContentViewControler],
         refreshControl: UIRefreshControl? = nil
     ) {
         super.init(nibName: nil, bundle: nil)
@@ -87,7 +87,7 @@ open class ALSegmentViewController: UIViewController
     }
 }
 
-extension ALSegmentViewController: IALSegmentNavigationBarDelegate
+extension SegmentViewController: ISegmentNavigationBarDelegate
 {
     func segmentNavigationBar(didSelect item: Int) {
         self.pageCollectionView.scrollToItem(at: item, animated: true)
@@ -95,7 +95,7 @@ extension ALSegmentViewController: IALSegmentNavigationBarDelegate
     }
 }
 
-extension ALSegmentViewController: IALSegmentVerticalCollectionAdapter
+extension SegmentViewController: ISegmentVerticalCollectionAdapter
 {
     func segmentVerticalCollection(headerView collectionView: UICollectionView) -> UIView? {
         self.headerView
@@ -115,7 +115,7 @@ extension ALSegmentViewController: IALSegmentVerticalCollectionAdapter
     }
 }
 
-extension ALSegmentViewController: IALSegmentPageCollectionAdapter
+extension SegmentViewController: ISegmentPageCollectionAdapter
 {
     func segmentPageCollection(shouldShow index: Int) -> Bool {
         self.viewControllers[index].canBeShowed
@@ -143,7 +143,7 @@ extension ALSegmentViewController: IALSegmentPageCollectionAdapter
     }
 }
 
-extension ALSegmentViewController: IALSegmentContentDelegate
+extension SegmentViewController: ISegmentContentDelegate
 {
     public func segmentContent(didScroll scrollView: UIScrollView) {
         self.syncVerticalScrollIfNeeded()
@@ -152,7 +152,7 @@ extension ALSegmentViewController: IALSegmentContentDelegate
 
 // MARK: - Private
 
-private extension ALSegmentViewController
+private extension SegmentViewController
 {
     func syncVerticalScrollIfNeeded() {
         guard self.headerView != nil else {
@@ -192,7 +192,7 @@ private extension ALSegmentViewController
 
         let ctx = (
             collaborativeY: collaborativeScrollView.contentOffset.y,
-            navBarHeight: self.navigationBarStyles.height
+            navBarHeight: self.segmentNavigationBarStyles.height
         )
 
         self.viewControllers

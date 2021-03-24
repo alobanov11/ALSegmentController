@@ -4,21 +4,11 @@
 
 import UIKit
 
-public protocol IALCollaborativeScrollView: UIScrollView
+public protocol ICollaborativeScrollView: UIScrollView, UIGestureRecognizerDelegate
 {
 }
 
-open class ALCollaborativeScrollView: UIScrollView, UIGestureRecognizerDelegate, IALCollaborativeScrollView
-{
-    public func gestureRecognizer(
-        _ gestureRecognizer: UIGestureRecognizer,
-        shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
-    ) -> Bool {
-        otherGestureRecognizer.view is UIScrollView
-    }
-}
-
-open class ALCollaborativeCollectionView: UICollectionView, UIGestureRecognizerDelegate, IALCollaborativeScrollView
+open class CollaborativeScrollView: UIScrollView, UIGestureRecognizerDelegate, ICollaborativeScrollView
 {
     public func gestureRecognizer(
         _ gestureRecognizer: UIGestureRecognizer,
@@ -28,7 +18,17 @@ open class ALCollaborativeCollectionView: UICollectionView, UIGestureRecognizerD
     }
 }
 
-open class ALCollaborativeTableView: UITableView, UIGestureRecognizerDelegate, IALCollaborativeScrollView
+open class CollaborativeCollectionView: UICollectionView, UIGestureRecognizerDelegate, ICollaborativeScrollView
+{
+    public func gestureRecognizer(
+        _ gestureRecognizer: UIGestureRecognizer,
+        shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
+    ) -> Bool {
+        otherGestureRecognizer.view is UIScrollView
+    }
+}
+
+open class CollaborativeTableView: UITableView, UIGestureRecognizerDelegate, ICollaborativeScrollView
 {
     public func gestureRecognizer(
         _ gestureRecognizer: UIGestureRecognizer,

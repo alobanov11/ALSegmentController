@@ -4,7 +4,7 @@
 
 import UIKit
 
-public struct ALSegmentNavigationBarStyles
+public struct SegmentNavigationBarStyles
 {
     public let height: CGFloat
     public let font: UIFont
@@ -33,11 +33,11 @@ public struct ALSegmentNavigationBarStyles
     }
 }
 
-protocol IALSegmentNavigationBarDelegate: AnyObject {
+protocol ISegmentNavigationBarDelegate: AnyObject {
     func segmentNavigationBar(didSelect item: Int)
 }
 
-final class ALSegmentNavigationBarView: UIView
+final class SegmentNavigationBarView: UIView
 {
     private lazy var stackView: UIStackView = {
         let subviews = self.segments.enumerated().map { item -> UIView in
@@ -79,14 +79,14 @@ final class ALSegmentNavigationBarView: UIView
         constant: 0
     )
 
-    private weak var delegate: IALSegmentNavigationBarDelegate!
+    private weak var delegate: ISegmentNavigationBarDelegate!
 
-    private let styles: ALSegmentNavigationBarStyles
+    private let styles: SegmentNavigationBarStyles
     private let segments: [String]
 
     init(
-        delegate: IALSegmentNavigationBarDelegate,
-        styles: ALSegmentNavigationBarStyles,
+        delegate: ISegmentNavigationBarDelegate,
+        styles: SegmentNavigationBarStyles,
         segments: [String]
     ) {
         self.delegate = delegate

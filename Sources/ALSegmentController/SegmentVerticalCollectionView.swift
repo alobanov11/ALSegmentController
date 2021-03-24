@@ -4,7 +4,7 @@
 
 import UIKit
 
-protocol IALSegmentVerticalCollectionAdapter: AnyObject
+protocol ISegmentVerticalCollectionAdapter: AnyObject
 {
     func segmentVerticalCollection(headerView collectionView: UICollectionView) -> UIView?
     func segmentVerticalCollection(navigationBarView collectionView: UICollectionView) -> UIView?
@@ -12,7 +12,7 @@ protocol IALSegmentVerticalCollectionAdapter: AnyObject
     func segmentVerticalCollection(didScroll collectionView: UICollectionView)
 }
 
-final class ALSegmentVerticalCollectionView: UIView
+final class SegmentVerticalCollectionView: UIView
 {
     private final class ControlContainableCollectionView: UICollectionView
     {
@@ -66,11 +66,11 @@ final class ALSegmentVerticalCollectionView: UIView
         return collectionView
     }()
 
-    private weak var adapter: IALSegmentVerticalCollectionAdapter!
+    private weak var adapter: ISegmentVerticalCollectionAdapter!
     private let refreshControl: UIRefreshControl?
 
     init(
-        adapter: IALSegmentVerticalCollectionAdapter,
+        adapter: ISegmentVerticalCollectionAdapter,
         refreshControl: UIRefreshControl?
     ) {
         self.adapter = adapter
@@ -105,7 +105,7 @@ final class ALSegmentVerticalCollectionView: UIView
     }
 }
 
-extension ALSegmentVerticalCollectionView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension SegmentVerticalCollectionView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
